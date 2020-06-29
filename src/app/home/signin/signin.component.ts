@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit{
             password: ['', Validators.required]
         });
     }
-
+ 
     login(){
         let user = this.loginForm.get('userName').value;
         let password = this.loginForm.get('password').value;
