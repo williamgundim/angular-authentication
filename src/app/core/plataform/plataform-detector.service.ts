@@ -10,6 +10,10 @@ export class PlatformDetectorService {
 
   }
 
+  /**
+   * isPlatformBrowser
+   * @description Metodo para retornar se esta executando em um browse
+   */
   isPlatformBrowser(){
     return isPlatformBrowser(this.plataformId);
   }
