@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { tokenService } from '../token/token.service';
+import { userService } from '../user/user.service'
 
 const API_URL = 'http://localhost:3000'
 
@@ -13,7 +14,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: tokenService) {
+    private userService: userService) {
   }
 
   /**authenticate
@@ -32,7 +33,7 @@ export class AuthService {
       .pipe(tap( res =>{
         //utiliza o tap para armanezar o token, ele é chamado entre a resposta e o subscribe. 
         const authToken = res.headers.get('x-access-token');
-        this.tokenService.setToken(authToken);
+        this.userService.setToken(authToken);
       }))
   }
 
